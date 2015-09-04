@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><%= fontName %></title>
+		<link rel="stylesheet" href="<%= cssPath%>">
+		<style>
+			
+			#fontList li {
+				list-style: none;
+				cursor: pointer;
+			}
+
+			.none {
+				display: none;
+			}
+
+			textarea {
+				resize: none;
+				width: 600px;
+				height: 50px;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1><%= fontName %></h1>
+		<ul id="fontList">
+			<%for (var i = 0, l = fontClassList.length; i < l; i++) {%>
+			<li>
+				<i class="<%= iconClass%> <%= fontClassList[i].className%>" title="<%= fontClassList[i].cssUnicode%>;">  .<%= fontClassList[i].className%></i>   
+			</li>
+			<%}%>
+		</ul>
+
+		<hr>
+		<h1>Usage:</h1>
+		<div class="showUsage">
+			<textarea id="first"></textarea>
+			<br>or:
+			<br><br>
+			<textarea id="second"></textarea>
+		</div>
+		<script>
+
+		function onEvent(el, type, fn) {
+			if (window.addEventListener) {
+				el.addEventListener(type, function(e) {
+					fn.call(this, e.target);
+				}, false);
+			} else if (window.attachEvent) {
+				el.attachEvent('on' + type, function(e) {
+					e = e || window.event;
+					fn.call(this, e.srcElement);
+				});
+			}
+		}
+
+		onEvent(document.getElementById('fontList'), 'click', function(e) {
+			if (e.tagName !== 'I')return;
+			document.getElementById('first').value = '<i class="' + e.className + '"></i>';
+			document.getElementById('second').value = '<i class="' + e.className.match(/[^ ]*/g)[0] + '">' + e.getAttribute('title').replace('\\', '&#x') + '</i>';
+		});
+		document.getElementsByTagName('i')[0].click();
+
+		</script>
+	</body>
+</html>

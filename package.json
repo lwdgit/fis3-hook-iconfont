@@ -1,0 +1,32 @@
+{
+  "name": "fis3-hook-iconfont",
+  "version": "0.0.1",
+  "description": "auto generate iconfont for fis3",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "font-carrier": "^0.0.5",
+    "lodash.template": "^3.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwdgit/fis3-hook-iconfont.git"
+  },
+  "keywords": [
+    "fis3",
+    "reasy",
+    "iconfont"
+  ],
+  "author": "lwdgit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lwdgit/fis3-hook-iconfont/issues"
+  },
+  "homepage": "https://github.com/lwdgit/fis3-hook-iconfont#readme"
+}
