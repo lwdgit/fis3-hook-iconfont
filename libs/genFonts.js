@@ -172,7 +172,6 @@ module.exports = function(settings) {
                 var matchTag = new RegExp('(\\/\\*+' + config.placeholder + '\\*+\\/[\\w\\W]*end ' + config.placeholder + '\\*+\\/)');//生成动态正则 /(\/\*{8}iconfont\*{8}\/[\w\W]*end iconfont\*{8}\/)/
 
                 if (matchTag.test(content)) {
-                    console.log('h')
                     content = content.replace(matchTag, css);
                 } else {
                     content = [css, content].join('\r\n');
