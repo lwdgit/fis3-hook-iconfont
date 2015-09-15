@@ -1,6 +1,6 @@
 {
   "name": "fis3-hook-iconfont",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "auto generate iconfont for fis3",
   "main": "index.js",
   "directories": {

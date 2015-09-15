@@ -72,8 +72,8 @@ function readTemplate(file) {
 
 function makeCss(iconsObj) {
     var template = _template(readTemplate('demo.css'));
-    var src = path.join(path.relative(config.destFont, path.dirname(config.destCss)), config.fontName); //计算出字体与css的相对路径
-
+    var src = path.join(path.relative(path.dirname(config.destCss), config.destFont), config.fontName).replace(/\\/g, '/'); //计算出字体与css的相对路径
+  console.log(src);
     return template({
         fontSrc1: 'url("' + src + '.eot")',
         fontSrc2: 'url("' + src + '.eot?#iefix") format("embedded-opentype"),\n\t\turl("' + src + '.woff") format("woff"),\n\t\turl("' + src + '.ttf") format("truetype"),\n\t\turl("' + src + '.svg#' + config.fontName + '") format("svg")',
@@ -87,7 +87,7 @@ function makeCss(iconsObj) {
 function makeHtml(iconsObj) {
     var template = _template(readTemplate('demo.html'));
     return template({
-        cssPath: path.relative(path.dirname(config.destHtml), config.destCss),
+        cssPath: path.relative(path.dirname(config.destHtml), config.destCss).replace(/\\/g, '/'),
         iconClass: config.iconClass,
         fontName: config.fontName,
         fontClassList: iconsObj
