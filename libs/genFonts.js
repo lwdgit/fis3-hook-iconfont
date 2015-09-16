@@ -138,7 +138,7 @@ module.exports = function(settings) {
     config.classPrefix = settings.classPrefix || 'icon-'
     config.destFont = settings.destFont;
     config.destHtml = settings.destHtml;
-    config.placeholder = settings.placeholder || 'iconfont';
+    config.placeholder = settings.placeholder || config.fontName;
 
     config.destCss = settings.destCss || path.join(settings.destFont, settings.fontName + '.css');
 
